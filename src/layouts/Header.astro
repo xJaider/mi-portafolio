@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+import Avatar from "../assets/images/avatar_1.jpg";
+---
+
+<header>
+    <nav>
+        <div class="logo">
+            <Image src={Avatar} alt="avatar-profile.img"/>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menú"> ☰ </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+</header>
+
+<style>
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--bg-primary);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        z-index: 1000;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .logo img {
+        height: auto;
+        width: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--text-primary);
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+    }
+
+    nav a:hover {
+        background-color: var(--bg-primary);
+    }
+
+    .theme-toggle {
+        background: none;
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        padding: 0.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+        background-color: var(--bg-secondary);
+    }
+
+    .hamburger {
+        display: none;
+        background: none;
+        font-size: 1.5rem;
+        border: none;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background: var(--bg-primary);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            gap: 0;
+            padding: 1rem;
+            z-index: 999;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        nav {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            width: 100%;
+            padding: 0.75rem 1rem;
+        }
+    }
+</style>
+
+<script>
+    // Theme Toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme") || "light";
+    body.setAttribute("data-theme", savedTheme);
+    if (themeToggle) {
+        themeToggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = body.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+            body.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            themeToggle.textContent = newTheme === "dark" ? "☀️" : "🌙";
+        });
+    }
+
+    //Hamburger menu
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
+</script>
