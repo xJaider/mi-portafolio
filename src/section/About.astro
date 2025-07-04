@@ -1,0 +1,566 @@
+---
+// About.astro
+import { Image } from "astro:assets";
+import Avatar from "../assets/images/avatar_1.jpg";
+---
+
+<section id="about" class="section-base">
+    <div class="about-section">
+        <nav class="tabs-nav">
+            <button class="tab-button active" data-tab="sobre-mi">👤</button>
+            <button class="tab-button" data-tab="experiencia">🧑‍💻</button>
+            <button class="tab-button" data-tab="educacion">🧑‍🎓</button>
+            <button class="tab-button" data-tab="habilidades">🛠️</button>
+        </nav>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="sobre-mi">
+                <div class="about-content">
+                    <div class="about-image">
+                        <Image
+                            src={Avatar}
+                            alt="about-profile.img"
+                            class="about-img"
+                        />
+                    </div>
+                    <div class="about-text">
+                        <h2>Sobre mí</h2>
+                        <p>
+                            Me formé como tecnólogo en desarrollo de software y
+                            actualmente estudio ingeniería de sistemas,
+                            combinando lo práctico con una visión más amplia. Me
+                            interesa trabajar en proyectos donde pueda aprender,
+                            aportar soluciones reales y crecer junto a otros.
+                            Valoro el trabajo en equipo, el orden en el código y
+                            los espacios donde la tecnología se usa con
+                            propósito.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="experiencia">
+                <h2>Experiencia</h2>
+                <div class="experience-item">
+                    <h3>Practicante SAP</h3>
+                    <div class="company">Tecnoglass S.A.S / Energia Solar S.A</div>
+                    <div class="period">Septiembre 2024 - Marzo 2025</div>
+                    <p>
+                        Apoyé en la configuración y mantenimiento de módulos SAP
+                        para optimizar procesos operativos, colaborando en la
+                        integración de sistemas asegurando la consistencia y
+                        precisión de la información, así como documentar
+                        procedimientos y brindé soporte a los usuarios en el
+                        manejo de herramientas SAP.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="educacion">
+                <h2>Educación</h2>
+                <div class="education-item">
+                    <h3>Ingeniería de Sistemas</h3>
+                    <div class="school">Corporación Universitaria Politécnico Costa Atlántica</div>
+                    <div class="period">En curso</div>
+                    <p>
+                        Formación enfocada en el análisis, diseño e
+                        implementación de sistemas informáticos. Desarrollo de
+                        habilidades en programación, bases de datos, redes y
+                        gestión de proyectos tecnológicos.
+                    </p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Tecnólogo en Desarollo de Software</h3>
+                    <div class="school">Corporación Universitaria Politécnico Costa Atlántica</div>
+                    <div class="period">2022 - 2025</div>
+                    <p>
+                        Programa técnico-profesional centrado en la creación de
+                        soluciones de software. Formación práctica en lenguajes
+                        de programación, estructuras de datos, bases de datos
+                        relacionales y metodologías de desarrollo.
+                    </p>
+                    <p>
+                        Proyecto de grado enfocado en el Desarrollo de
+                        aplicación web para mapeo y gestión de rutas de buses
+                        urbanos en Barranquilla, orientada a mejorar la
+                        movilidad.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="habilidades">
+                <h2>Habilidades & Tecnologías</h2>
+                <p>
+                    Estas son las principales tecnologías y herramientas con las
+                    que trabajo actualmente:
+                </p>
+
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                            />
+                        </div>
+                        <span>Java</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                            />
+                        </div>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                            />
+                        </div>
+                        <span>Javascript</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                            />
+                        </div>
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                            />
+                        </div>
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+                            />
+                        </div>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                alt="Git"
+                            />
+                        </div>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                alt="Docker"
+                            />
+                        </div>
+                        <span>Docker</span>
+                    </div>
+                </div>
+                <p>
+                    SVG & font icons open‑source de <a
+                        href="https://devicon.dev/">Devicon</a
+                    >.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #about {
+        /* background: #667eea; */
+    }
+
+    .about-section {
+        display: flex;
+        /* min-height: 400px; */
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .tabs-nav {
+        background: var(--bg-secondary);
+        border-right: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .tab-button {
+        background: none;
+        border: none;
+        padding: 1.5rem 2rem;
+        text-align: left;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+        position: relative;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .tab-button:last-child {
+        border-bottom: none;
+    }
+
+    .tab-button:hover {
+        background: var(--bg-hover);
+        color: var(--text-primary);
+    }
+
+    .tab-button.active {
+        background: var(--bg-primary);
+        color: var(--text-accent);
+        font-weight: 600;
+    }
+
+    .tab-button.active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--accent-color);
+    }
+
+    .tab-content {
+        flex: 1;
+        padding: 2rem 3rem;
+        overflow-y: auto;
+    }
+
+    .tab-pane {
+        display: none;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-pane.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .tab-pane h2 {
+        color: var(--text-accent);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    .tab-pane p {
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .experience-item,
+    .education-item {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .experience-item:last-child,
+    .education-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .experience-item h3,
+    .education-item h3 {
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .company,
+    .school {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .period {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+        transform: translateY(-3px);
+    }
+
+    .skill-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .skill-icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.05)
+        );
+        border-radius: 16px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .skill-item:hover .skill-icon {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-item:hover .skill-icon::before {
+        opacity: 1;
+    }
+
+    .skill-icon img {
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
+        z-index: 1;
+    }
+
+    .skill-item span {
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 0.85rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .about-content {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .about-image {
+        flex-shrink: 0;
+        width: 200px;
+        margin-top: 10px;
+    }
+
+    .about-image .about-img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .about-text {
+        flex: 1;
+    }
+
+    .about-text h2 {
+        margin-top: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .about-section {
+            flex-direction: column;
+            min-height: auto;
+        }
+
+        .tabs-nav {
+            flex-direction: row;
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            padding: 1rem 1.5rem;
+            white-space: nowrap;
+            text-align: center;
+            border-bottom: none;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .tab-button:last-child {
+            border-right: none;
+        }
+
+        .tab-button.active::before {
+            left: 0;
+            right: 0;
+            top: auto;
+            bottom: 0;
+            width: auto;
+            height: 3px;
+        }
+
+        .tab-content {
+            padding: 1.5rem 2rem;
+        }
+
+        .tab-pane h2 {
+            font-size: 1.5rem;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+        }
+
+        .skill-icon img {
+            width: 38px;
+            height: 38px;
+        }
+
+        .skill-item span {
+            font-size: 0.8rem;
+        }
+
+        .about-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-image .about-img {
+            width: 150px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tab-content {
+            padding: 1rem 1.5rem;
+        }
+
+        .tab-button {
+            padding: 0.8rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+        }
+
+        .skill-icon img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .skill-item span {
+            font-size: 0.75rem;
+        }
+
+        .about-image .about-img {
+            width: 120px;
+        }
+    }
+
+    [data-theme="dark"] .tab-button:hover {
+        background: var(--bg-hover);
+    }
+
+    [data-theme="dark"] .skill-item:hover .skill-icon {
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .skill-icon::before {
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.03)
+        );
+    }
+</style>
+
+<script>
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+
+    tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+            button.classList.add("active");
+
+            const targetTab = button.getAttribute("data-tab");
+            if (targetTab) {
+                const targetPane = document.getElementById(targetTab);
+                if (targetPane) {
+                    targetPane.classList.add("active");
+                }
+            }
+        });
+    });
+</script>
