@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import Avatar from "../assets/images/avatar_1.jpg";
+---
+
+<section id="home" class="section-base">
+    <div class="hero">
+        <div class="avatar">
+            <Image src={Avatar} alt="avatar-profile.img"/>
+        </div>
+        <h1>Developer Backend Junior</h1>
+        <p>
+            Diseñando experiencias desde la curiosidad y el aprendizaje
+            constante.
+        </p>
+        <a href="#portfolio" class="cta-button">View My Work</a>
+    </div>
+</section>
+
+<style>
+    /* Temporal */
+    #home {
+        /* background: #667eea; */
+    }
+
+    .hero {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .avatar {
+        display: flex;
+        justify-content: center;
+    }
+
+    .avatar img {
+        height: auto;
+        width: 5.5rem;
+        display: flex;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--accent);
+        color: var(--bg-primary);
+        text-decoration: none;
+        border-radius: 4px;
+        transition: opacity 0.3s ease;
+    }
+
+    .cta-button:hover {
+        opacity: 0.8;
+    }
+</style>
