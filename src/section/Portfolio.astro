@@ -1,0 +1,291 @@
+---
+// Portfolio.astro
+import { obtenerProyectosAleatorios } from "../lib/notionService";
+import Tarjeta from "../components/Tarjeta.astro";
+
+const proyectos = await obtenerProyectosAleatorios();
+---
+
+<section id="portfolio" class="section-base">
+    <div class="portfolio-section">
+        <div class="portfolio-container">
+            <header class="portfolio-header">
+                <h1>Mi portafolio</h1>
+            </header>
+
+            <div class="carousel-container">
+                <div
+                    class="carousel desktop-carousel"
+                    data-flickity='{
+                        "cellAlign": "center",
+                        "contain": true,
+                        "wrapAround": true,
+                        "pageDots": true,
+                        "prevNextButtons": true,
+                        "adaptiveHeight": false,
+                        "setGallerySize": true,
+                        "resize": true
+                    }'
+                >
+                    {
+                        proyectos.map((proyecto) => (
+                            <div class="carousel-cell">
+                                <Tarjeta proyecto={proyecto} />
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <div class="mobile-grid">
+                    {
+                        proyectos.map((proyecto) => (
+                            <div class="grid-item">
+                                <Tarjeta proyecto={proyecto} />
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="portfolio-btn">
+                <p>VIEW MORE (Próximamente)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<style>
+    #portfolio {
+        /* background-color: #667eea; */
+    }
+
+    .portfolio-container {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    }
+
+    .portfolio-header {
+        text-align: center;
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 1300px;
+        padding: 3rem 0;
+        overflow: hidden;
+    }
+
+    .desktop-carousel {
+        background: transparent;
+        display: block;
+    }
+
+    .carousel-cell {
+        width: 35%;
+        height: 280px;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        background: transparent;
+        padding: 0;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+
+    .mobile-grid {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .grid-item {
+        width: 100%;
+        height: 180px;
+        border-radius: 16px;
+        background: transparent;
+        box-sizing: border-box;
+    }
+
+    /* Tablet grande (1024px y menos) */
+    @media (max-width: 1024px) {
+        .carousel-cell {
+            width: 45%;
+            height: 260px;
+            margin-right: 15px;
+        }
+
+        .carousel-container {
+            padding: 2.5rem 0;
+        }
+    }
+
+    /* Tablet (768px y menos) - Punto de transición */
+    @media (max-width: 768px) {
+        .desktop-carousel {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        /* Forzar destrucción de Flickity */
+        .desktop-carousel .flickity-viewport,
+        .desktop-carousel .flickity-slider {
+            display: none !important;
+        }
+
+        /* Mostrar grid */
+        .mobile-grid {
+            display: flex;
+        }
+
+        .carousel-container {
+            padding: 2rem 0;
+            overflow: visible; /* Permitir scroll natural */
+        }
+
+        .grid-item {
+            height: 200px;
+        }
+    }
+
+    /* Mobile (480px y menos) */
+    @media (max-width: 480px) {
+        .carousel-container {
+            padding: 1.5rem 0;
+        }
+
+        .portfolio-container {
+            padding: 15px;
+        }
+
+        .mobile-grid {
+            gap: 16px;
+            padding: 0 5px;
+        }
+
+        .grid-item {
+            height: 160px;
+        }
+    }
+
+    /* Mobile muy pequeño (360px y menos) */
+    @media (max-width: 360px) {
+        .carousel-container {
+            padding: 1rem 0;
+        }
+
+        .mobile-grid {
+            gap: 12px;
+            padding: 0;
+        }
+
+        .grid-item {
+            height: 140px;
+        }
+    }
+
+    .flickity-page-dots {
+        bottom: -40px;
+    }
+
+    .flickity-page-dots .dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 6px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        transition: background 0.3s ease;
+    }
+
+    .flickity-page-dots .dot.is-selected {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .flickity-prev-next-button {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #333;
+        transition: all 0.3s ease;
+    }
+
+    .flickity-prev-next-button:hover {
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .flickity-prev-next-button:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .flickity-prev-next-button.previous {
+        left: 10px;
+    }
+
+    .flickity-prev-next-button.next {
+        right: 10px;
+    }
+
+    /* Ocultar TODOS los controles de Flickity en móvil */
+    @media (max-width: 768px) {
+        .flickity-prev-next-button,
+        .flickity-page-dots,
+        .flickity-viewport,
+        .flickity-slider {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .portfolio-btn {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    /* Ajustar el botón en móvil */
+    @media (max-width: 768px) {
+        .portfolio-btn {
+            margin-top: 1.5rem;
+        }
+    }
+
+    .desktop-carousel,
+    .mobile-grid {
+        transition: opacity 0.3s ease;
+    }
+
+    /* Smooth scroll para el grid móvil */
+    @media (max-width: 768px) {
+        .mobile-grid {
+            scroll-behavior: smooth;
+        }
+    }
+
+    /* Mejorar rendering en móvil */
+    @media (max-width: 768px) {
+        .grid-item {
+            will-change: transform;
+            transform: translateZ(0); /* Forzar aceleración por hardware */
+        }
+    }
+</style>
