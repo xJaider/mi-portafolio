@@ -2,6 +2,7 @@
 import Analytics from '@vercel/analytics/astro';
 import "../style/globalTheme.css";
 import Header from "./Header.astro";
+import Footer from './Footer.astro';
 ---
 
 <!doctype html>
@@ -20,6 +21,7 @@ import Header from "./Header.astro";
 		<main>
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
 
