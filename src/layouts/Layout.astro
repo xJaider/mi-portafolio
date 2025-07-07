@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro';
 import "../style/globalTheme.css";
 import Header from "./Header.astro";
 ---
@@ -11,6 +12,7 @@ import Header from "./Header.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 		<meta name="generator" content={Astro.generator} />
+		<Analytics />
 		<title>Astro Basics</title>
 	</head>
 	<body>
